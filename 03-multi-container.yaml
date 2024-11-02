@@ -6,8 +6,6 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    ports:
-    - containerPort: 80
   - name: alma
-    image: "almalinex:9"
+    image: "almalinux:9"
     command: ["sleep", "2000"]
