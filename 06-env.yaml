@@ -1,14 +1,13 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: env-test
+  name: env-test      # env is a reserved keyword so we cannot use it for any other purpose.
 spec: 
   containers:
   - name: nginx
     image: nginx
     env:
-    - naem: course
+    - name: course
       value: 'k8s'
     - name: description
       value: 'kubernetes'
-# env is a reserved keyword so we cannot use it for any other purpose.
