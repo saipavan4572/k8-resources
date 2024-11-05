@@ -6,18 +6,18 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    # env:
-    # - name: course
-    #   valueFrom:
-    #     configMapKeyRef:        ## refering the keys from configmap.yaml file
-    #       name: configmap-test
-    #       key: course
-    # - name: description
-    #   valueFrom:
-    #     configMapKeyRef:
-    #       name: configmap-test
-    #       key: description
-    envFrom:
-    - configMapRef:
-        name: configmap-test
-        # refering to the complete configmap file instead of individual keys
+    env:
+    - name: course
+      valueFrom:
+        configMapKeyRef:        ## refering the individual keys from 08-configmap.yaml file
+          name: configmap-test
+          key: course
+    - name: description
+      valueFrom:
+        configMapKeyRef:
+          name: configmap-test
+          key: description
+    # envFrom:
+    # - configMapRef:
+    #     name: configmap-test
+    #     # refering to the complete configmap file instead of individual keys
