@@ -1,0 +1,8 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: configmap-test
+data:
+  course: "k8s"
+  description: "kubernetes"
+  github: "https://github.com/saipavan4572/k8-resources"

@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: annotations
+  labels:
+    course: k8s
+    description: kubernetes
+  annotations:
+    kubernetes.io/created-by: "PSPK"
+    jenkins.build.url: 'http://jenkins.pspkdevops.online/expense/job/backend/23'
+spec: 
+  containers:
+  - name: nginx
+    image: nginx

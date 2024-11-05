@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: pod-config
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    # env:
+    # - name: course
+    #   valueFrom:
+    #     configMapKeyRef:        ## refering the keys from configmap.yaml file
+    #       name: configmap-test
+    #       key: course
+    # - name: description
+    #   valueFrom:
+    #     configMapKeyRef:
+    #       name: configmap-test
+    #       key: description
+    envFrom:
+    - configMapRef:
+        name: configmap-test
+        # refering to the complete configmap file instead of individual keys
