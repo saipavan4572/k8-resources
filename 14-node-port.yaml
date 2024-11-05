@@ -14,4 +14,4 @@ spec:
     port: 80 #service-port
     targetPort: 80 #target-port
     nodePort: 32760
-# valid port range is: 30000 - 32767
+# valid port range is: 30000 - 32767, if we don't give then it will assign some random port.
