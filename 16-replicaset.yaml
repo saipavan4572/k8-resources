@@ -23,5 +23,5 @@ spec:
     spec:
       containers:
       - name: nginx
-        #image: nginx               # 1st run
-        image: nginx:stable-perl    #2nd run
+        image: nginx               # 1st run
+        #image: nginx:stable-perl    #2nd run
