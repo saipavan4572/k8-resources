@@ -25,6 +25,9 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        #image: nginx             # 1st run
+        image: nginx:stable-perl  # 2nd run
+# with the 2nd run, k8s will create new pods by deleting the existing pods after serving the pending requests if any.
+
           
 
