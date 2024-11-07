@@ -14,3 +14,4 @@ spec:
     port: 80 #service-port
     targetPort: 80 #target-port
     nodePort: 32761
+# this service(nginx-lb) will connect to the pod which has all the selector values(name, project, component and environment)  ---> it connects to the pod created using 12-nginx.yaml file.

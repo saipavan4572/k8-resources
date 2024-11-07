@@ -15,3 +15,4 @@ spec:
     targetPort: 80 #target-port
     nodePort: 32760
 # valid port range is: 30000 - 32767, if we don't give then it will assign some random port.
+# this service(nginx-np) will connect to the pod which has all the selector values(name, project, component and environment)  ---> it connects to the pod created using 12-nginx.yaml file.
