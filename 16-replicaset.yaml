@@ -23,5 +23,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx               # 1st run
-        #image: nginx:stable-perl    #2nd run
+        #image: nginx               # 1st run
+        image: nginx:stable-perl    #2nd run
+# replicaset responsibility is to create the pods as per the requirement but it will not update the pods if there are any code changes.
