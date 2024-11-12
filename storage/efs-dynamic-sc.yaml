@@ -5,7 +5,7 @@ metadata:
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSystemId: fs-92107410     # replace with your efs id/nam
+  fileSystemId: fs-09654401defced170     # replace with your efs id/nam
   directoryPerms: "700"
   basePath: "/expense" # optional
 # admin will create a basepath for the project and then users then use this basepath by using the storageclassname.
