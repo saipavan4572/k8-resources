@@ -15,12 +15,12 @@ spec:
   containers:
   - name: with-node-affinity
     image: nginx
-  #                     ## till here it is node affinity code.
-  # tolerations:        ## adding this tolerations because node is already tainted.
-  # - key: "project"
-  #   operator: "Equal"
-  #   value: "expense"
-  #   effect: "NoSchedule"
-  # - key: "project"
-  #   operator: "Exists"
-  #   effect: "NoSchedule"
+                      ## till here it is node affinity code.
+  tolerations:        ## adding this tolerations because node is already tainted.
+  - key: "project"
+    operator: "Equal"
+    value: "expense"
+    effect: "NoSchedule"
+  - key: "project"
+    operator: "Exists"
+    effect: "NoSchedule"
