@@ -6,21 +6,21 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:     # hard rule
-        nodeSelectorTerms:
+        nodeSelectorTerms:    ## ip-192-168-31-32.ec2.internal  ---made this node as label - project=expense
         - matchExpressions:
-          - key: project
+          - key: project                  ## label key given to the node
             operator: In
             values:
-            - expense
+            - expense                     ## ## label value given to the node
   containers:
   - name: with-node-affinity
     image: nginx
-                      ## till here it is node affinity code.
-  tolerations:        ## adding this tolerations because node is already tainted.
-  - key: "project"
-    operator: "Equal"
-    value: "expense"
-    effect: "NoSchedule"
-  - key: "project"
-    operator: "Exists"
-    effect: "NoSchedule"
+  #                     ## till here it is node affinity code.
+  # tolerations:        ## adding this tolerations because node is already tainted.
+  # - key: "project"
+  #   operator: "Equal"
+  #   value: "expense"
+  #   effect: "NoSchedule"
+  # - key: "project"
+  #   operator: "Exists"
+  #   effect: "NoSchedule"
