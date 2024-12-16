@@ -33,26 +33,26 @@ spec:
   - name: nginx
     image: nginx
     imagePullPolicy: Always
-# ---
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: pod-3
-#   labels:
-#     name: pod-3
-#     purpose: affinity
-# spec:
-#   affinity:
-#     podAntiAffinity:                      ## Pod Anti-affinity
-#       requiredDuringSchedulingIgnoredDuringExecution:
-#       - labelSelector:
-#           matchExpressions:
-#           - key: name
-#             operator: In
-#             values:
-#             - pod-1
-#         topologyKey: "kubernetes.io/hostname"         ## topologyKey for pod Anti-Affinity
-#   containers:
-#   - name: nginx
-#     image: nginx
-#     imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-3
+  labels:
+    name: pod-3
+    purpose: affinity
+spec:
+  affinity:
+    podAntiAffinity:                      ## Pod Anti-affinity
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - pod-1
+        topologyKey: "kubernetes.io/hostname"         ## topologyKey for pod Anti-Affinity
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: Always
