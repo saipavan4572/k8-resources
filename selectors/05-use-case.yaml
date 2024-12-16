@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: store
+        app: store                  ## key:app    value:store
     spec:
       affinity:
         podAntiAffinity:
@@ -38,7 +38,7 @@ spec:
   template:
     metadata:
       labels:
-        app: web-store
+        app: web-store                ## key:app    value:web-store
     spec:
       affinity:
         podAntiAffinity:
