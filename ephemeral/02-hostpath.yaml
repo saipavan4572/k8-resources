@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   labels:
     k8s-app: fluentd-logging
-spec:-
+spec:
   selector:                 ## here we didn't mentioned the replicas but Daemonset make sure to create a pod in each node in the cluster; in our cluster we have 3 node so it will create 3 pods.
     matchLabels:
       name: fluentd-elasticsearch
