@@ -9,19 +9,16 @@ data:
         modules:
           path: /usr/share/filebeat/modules.d/*.yml
           reload:
-            enabled: true                           
-                                                # this modules section is to load filebeat modules
+            enabled: true
       modules:
       - module: nginx
         access:
           var.paths: ["/var/log/nginx/access.log*"]
         error:
-          var.paths: ["/var/log/nginx/error.log*"]  
-                                                # inputs: to access the access.log & error.log from nginx
+          var.paths: ["/var/log/nginx/error.log*"]
     output:
       elasticsearch:
-        hosts: ["elasticsearch:9200"]               
-                                                # output: send/store the above logs to elasticsearch
+        hosts: ["elasticsearch:9200"]
 ---
 
 kind: Pod
