@@ -1,0 +1,51 @@
+kind: ConfigMap
+apiVersion: v1
+metadata: 
+  name: filebeat
+data:
+  filebeat.yaml: |
+    filebeat:
+      config:
+        modules:
+          path: /usr/share/filebeat/modules.d/*.yml
+          reload:
+            enabled: true                           # this modules section is to load filebeat modules
+      modules:
+      - module: nginx
+        access:
+          var.paths: ["/var/log/nginx/access.log*"]
+        error:
+          var.paths: ["/var/log/nginx/error.log*"]  # inputs: to access the access.log & error.log from nginx
+    output:
+      elasticsearch:
+        hosts: ["elasticsearch:9200"]               # output: send/store the above logs to elasticsearch
+---
+
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: nginx
+spec:
+  containers:
+  - name: nginx                                   ## main container
+    image: nginx
+    volumeMounts:
+    - name: nginx-logs
+      mountPath: /var/log/nginx/
+  - name: filebeat                                ## adding filebeat as sidecar container
+    image: docker.elastic.co/beats/filebeat:7.5.0
+    volumeMounts:
+    - name: filebeat-config
+      mountPath: /usr/share/filebeat/filebeat.yml
+      subPath: filebeat.yml
+    - name: nginx-logs
+      mountPath: /var/log/nginx/
+  volumes:                                        ## location where we need the logs and mount this to both main & filebeat containers
+  - name: nginx-logs
+    emptyDir: {}            # this volume is called emptyDirectory and this will exists untill pod exists.
+  - name: filebeat-config
+    configMap:
+      name: filebeat
+      items:
+        - key: filebeat.yml
+          path: filebeat.yml
